@@ -1,0 +1,97 @@
+package RandomWalker;
+import java.lang.Math;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import java.util.Random;
+
+public class Walker extends Application{
+	int x;
+	int y;
+	Walker()
+	{
+		int x = width/2;
+		int y = height/2;
+		
+	}
+	Walker w;
+	void display()
+	{
+		stroke(0);
+		point(x,y);
+	}
+	
+	int random(int i)
+	{
+		Random rn = new Random();
+		
+		int random = rn.nextInt(i + 1);
+		return random;
+	}
+	
+	void step()
+	{
+		int choice = random(4);
+		if(choice == 0)
+		{
+			x++;
+		}
+		else if(choice ==1)
+		{
+			x--;	
+		}
+		else if(choice == 2)
+		{
+			y++;
+		} 
+		else 
+		{
+			y--;
+		}
+	}
+	public void start(Stage theStage)
+	{
+		Group root = new Group();
+		Scene scene = new Scene(root, 640, 360);
+		theStage.setScene(scene);
+		theStage.setResizable(false);
+		theStage.show();
+		
+		
+
+		w = new Walker();
+
+		
+	}
+	
+	void draw()
+	{
+		w.step();
+		w.display();
+		
+		
+	}
+	
+	public static void main(String[] args)
+	{
+		launch(args);
+	}
+
+}
+class PVector {
+	double x;
+	double y;
+	
+	PVector(double d, double e)
+	{
+		x = d;
+		y = e;
+	}
+	void add(PVector v)
+	{
+		x = v.x + x;
+		y = v.y + y;
+	}
+	
+}

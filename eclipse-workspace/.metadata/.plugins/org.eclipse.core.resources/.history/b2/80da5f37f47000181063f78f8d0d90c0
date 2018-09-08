@@ -1,0 +1,43 @@
+package timedodge;
+import javafx.animation.AnimationTimer;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+	static int dx_obstacle = 1;
+	static int[] viewPort = new int[]{400,700};
+	public static void main(String[] args) {
+		launch(args);
+	}
+	@Override
+	public void start(Stage theStage) {
+		theStage.setTitle("TimeDodge ALPHA");
+		Group root = new Group();
+		Scene scene = new Scene(root, 400, 700);
+		theStage.setScene(scene);
+		theStage.centerOnScreen();
+		theStage.setResizable(false);
+		obstacle(scene, 400, 400);
+		theStage.show();
+		
+	}
+	@SuppressWarnings("unused")
+	private void obstacle(final Scene scene, int x, int y) {
+		Circle obstacle = new Circle(x + viewPort[0], y + viewPort[1],  5);
+		obstacle.setFill(Color.GRAY);
+		obstacle.setStroke(Color.BLANCHEDALMOND);
+		
+		final Group root = (Group) scene.getRoot();
+		root.getChildren().add(obstacle);
+	}
+}

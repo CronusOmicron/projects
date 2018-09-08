@@ -1,0 +1,24 @@
+package RandomWalker;
+
+import javafx.scene.shape.Circle;
+
+public class Ball {
+	
+	PVector vel;
+	PVector pos;
+	
+	public Ball()
+	{
+		Circle ball = new Circle();
+		
+	}
+	
+	//public void render(GraphicsContext g) {
+		
+	//}
+	
+	public void update(double duration) {
+		
+	}
+
+}
